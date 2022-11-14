@@ -160,7 +160,7 @@ section {
 .cart-products .item {
     display: flex;
     align-items: center;
-    border-bottom: solid 2px red;
+    border-bottom: solid 1px red;
 }
 
 .cart-products .item .item-content {
