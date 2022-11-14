@@ -5,101 +5,147 @@ let preciototal = document.querySelector('.price-total')
 let cantidad = document.querySelector('.count-product');
 
 
-let buyThings = [];
-let totalCard = 0;
-let countProduct = 0;
+let comprar = [];
+let totalproductos = 0;
+let cantidadproductos = 0;
 
 //funciones
 loadEventListenrs();
 function loadEventListenrs() {
-    contenedorcarta.addEventListener('click', addProduct);
+    contenedorcarta.addEventListener('click', agregarProducto);
 
-    contenedorcompra.addEventListener('click', deleteProduct);
+    contenedorcompra.addEventListener('click', quitarProducto);
 }
 
-function addProduct(e) {
+function agregarProducto(e) {
     e.preventDefault();
     if (e.target.classList.contains('btn-add-cart')) {
-        const selectProduct = e.target.parentElement;
-        readTheContent(selectProduct);
+        const selecionarProducto = e.target.parentElement;
+        leerContenido(selecionarProducto);
     }
 }
 
-function deleteProduct(e) {
+function quitarProducto(e) {
     if (e.target.classList.contains('delete-product')) {
-        const deleteId = e.target.getAttribute('data-id');
+        const quitarId = e.target.getAttribute('data-id');
 
-        buyThings.forEach(value => {
-            if (value.id == deleteId) {
-                let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
-                totalCard = totalCard - priceReduce;
-                totalCard = totalCard.toFixed(2);
+        comprar.forEach(value => {
+            if (value.id == quitarId) {
+                let precioR = parseFloat(value.precio) * parseFloat(value.cant);
+                totalproductos = totalproductos - precioR;
+                totalproductos = totalproductos.toFixed(2);
             }
         });
-        buyThings = buyThings.filter(product => product.id !== deleteId);
+        comprar = comprar.filter(producto => producto.id !== quitarId);
 
-        countProduct--;
+        cantidadproductos--;
     }
-    if (buyThings.length === 0) {
+    if (comprar.length === 0) {
         preciototal.innerHTML = 0;
         cantidad.innerHTML = 0;
     }
     loadHtml();
 }
 
-function readTheContent(product) {
-    const infoProduct = {
-        image: product.querySelector('div img').src,
-        title: product.querySelector('.title').textContent,
-        price: product.querySelector('div p span').textContent,
-        id: product.querySelector('a').getAttribute('data-id'),
-        amount: 1
+function leerContenido(producto) {
+    const infoProducto = {
+        imagen: producto.querySelector('div img').src,
+        titulo: producto.querySelector('.title').textContent,
+        precio: producto.querySelector('div p span').textContent,
+        id: producto.querySelector('a').getAttribute('data-id'),
+        cant: 1
     }
 
-    totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
-    totalCard = totalCard.toFixed(2);
+    totalproductos = parseFloat(totalproductos) + parseFloat(infoProducto.precio);
+    totalproductos = totalproductos.toFixed(2);
 
-    const exist = buyThings.some(product => product.id === infoProduct.id);
-    if (exist) {
-        const pro = buyThings.map(product => {
-            if (product.id === infoProduct.id) {
-                product.amount++;
-                return product;
+    const existir = comprar.some(producto => producto.id === infoProducto.id);
+    if (existir) {
+        const debe = comprar.map(producto => {
+            if (producto.id === infoProducto.id) {
+                producto.cant++;
+                return producto;
             } else {
-                return product
+                return producto
             }
         });
-        buyThings = [...pro];
+        comprar = [...debe];
     } else {
-        buyThings = [...buyThings, infoProduct]
-        countProduct++;
+        comprar = [...comprar, infoProducto]
+        cantidadproductos++;
     }
     loadHtml();
 }
 
 function loadHtml() {
     clearHtml();
-    buyThings.forEach(product => {
-        const { image, title, price, amount, id } = product;
+    comprar.forEach(producto => {
+        const { imagen, titulo, precio, cant, id } = producto;
         const row = document.createElement('div');
         row.classList.add('item');
         row.innerHTML = `
-            <img src="${image}" alt="">
+            <img src="${imagen}" alt="">
             <div class="item-content">
-                <h5>${title}</h5>
-                <h5 class="cart-price">${price}$</h5>
-                <h6>Amount: ${amount}</h6>
+                <h5>${titulo}</h5>
+                <h5 class="cart-price">${precio}$</h5>
+                <h6>Cantidad: ${cant}</h6>
             </div>
             <span class="delete-product" data-id="${id}">X</span>
         `;
 
         contenedorcompra.appendChild(row);
 
-        preciototal.innerHTML = totalCard;
+        preciototal.innerHTML = totalproductos;
 
-        cantidad.innerHTML = countProduct;
+        cantidad.innerHTML = cantidadproductos;
     });
 }
 function clearHtml() {
     contenedorcompra.innerHTML = '';
+}
+
+// Efecto de Movimiento
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((reveal) => {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveal.getBoundingClientRect().top;
+        var elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveal.classList.add("active");
+        } else {
+            reveal.classList.remove("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+
+//Boton Compra FINAL
+btnFinalCompra.onclick = () => {
+    if(comprar.length==0){
+        Swal.fire({
+            title: 'LO SENTIMOS',
+            text: 'Tu carro está vacío',
+                background: 'f0e8e8',
+        })
+    }else{
+        document.getElementById("totalPagar").innerText = "";
+        Swal.fire({
+            title: `Gracias por tu compra!`,
+            text: `En breve nos comunicaremos contigo`,
+            width: 400,
+            showConfirmButton: false,
+            timer: 3000,
+            background: `#f0e8e8`,
+            ///color: ``,
+            showClass: {
+                popup: "animate__animated animate__flip",
+            },
+            hideClass: {
+                popup: "animate__animated animate__fadeOutTopRight",
+            },
+        });
+    }
 }

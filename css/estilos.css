@@ -288,6 +288,10 @@ section {
 /*Post IMG FIN*/
 
 /* LOGIN */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+
+
 .message,
 .form,
 form {
@@ -408,6 +412,7 @@ form input:focus {
     cursor: pointer;
     border-radius: 5px;
 }
+
 /* LOGIN */
 /* FOOTER INI */
 .footer-color {
@@ -483,3 +488,17 @@ form input:focus {
     color: #fa0a32;
 }
 /* FOOTER INI */
+/* REVEAL INI*/
+.reveal {
+    position: relative;
+    transform: translateY(144px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* REVEAL FIN*/
