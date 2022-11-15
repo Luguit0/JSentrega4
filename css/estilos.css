@@ -199,6 +199,12 @@ section {
     font-weight: 700;
 }
 
+p.close-btn{
+    top: -4px;
+    right: 6px;
+    cursor: pointer;
+    color: #000;
+}
 /* Header FIN */
 
 /* Articulos INI */

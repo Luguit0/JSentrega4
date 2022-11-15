@@ -22,13 +22,43 @@ function agregarProducto(e) {
     if (e.target.classList.contains('btn-add-cart')) {
         const selecionarProducto = e.target.parentElement;
         leerContenido(selecionarProducto);
+        Swal.fire({
+            title: `Agregado a la Lista!`,
+            text: `Aprovecha los descuentos y combos en productos seleccionados.`,
+            width: 400,
+            showConfirmButton: false,
+            timer: 3000,
+            background: `#f0e8e8`,
+            ///color: ``,
+            showClass: {
+                popup: "animate__animated animate__flip",
+            },
+            hideClass: {
+                popup: "animate__animated animate__fadeOutTopRight",
+            },
+        });
     }
 }
+
 
 function quitarProducto(e) {
     if (e.target.classList.contains('delete-product')) {
         const quitarId = e.target.getAttribute('data-id');
-
+        Swal.fire({
+            title: `Removido Correctamente!`,
+            text: `Aprovecha los descuentos y combos en productos seleccionados.`,
+            width: 400,
+            showConfirmButton: false,
+            timer: 3000,
+            background: `#f0e8e8`,
+            ///color: ``,
+            showClass: {
+                popup: "animate__animated animate__flip",
+            },
+            hideClass: {
+                popup: "animate__animated animate__fadeOutTopRight",
+            },
+        });
         comprar.forEach(value => {
             if (value.id == quitarId) {
                 let precioR = parseFloat(value.precio) * parseFloat(value.cant);
@@ -124,13 +154,13 @@ window.addEventListener("scroll", reveal);
 
 //Boton Compra FINAL
 btnFinalCompra.onclick = () => {
-    if(comprar.length==0){
+    if (comprar.length == 0) {
         Swal.fire({
             title: 'LO SENTIMOS',
             text: 'Tu carro está vacío',
-                background: 'f0e8e8',
+            background: 'f0e8e8',
         })
-    }else{
+    } else {
         document.getElementById("totalPagar").innerText = "";
         Swal.fire({
             title: `Gracias por tu compra!`,
