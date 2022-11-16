@@ -17,6 +17,7 @@ function loadEventListenrs() {
     contenedorcompra.addEventListener('click', quitarProducto);
 }
 
+//Agregando producto
 function agregarProducto(e) {
     e.preventDefault();
     if (e.target.classList.contains('btn-add-cart')) {
@@ -40,7 +41,7 @@ function agregarProducto(e) {
     }
 }
 
-
+// Quitando producto
 function quitarProducto(e) {
     if (e.target.classList.contains('delete-product')) {
         const quitarId = e.target.getAttribute('data-id');
@@ -77,6 +78,7 @@ function quitarProducto(e) {
     loadHtml();
 }
 
+//obtengo info del producto agregado
 function leerContenido(producto) {
     const infoProducto = {
         imagen: producto.querySelector('div img').src,
@@ -85,7 +87,7 @@ function leerContenido(producto) {
         id: producto.querySelector('a').getAttribute('data-id'),
         cant: 1
     }
-
+    
     totalproductos = parseFloat(totalproductos) + parseFloat(infoProducto.precio);
     totalproductos = totalproductos.toFixed(2);
 
@@ -161,7 +163,12 @@ btnFinalCompra.onclick = () => {
             background: 'f0e8e8',
         })
     } else {
-        document.getElementById("totalPagar").innerText = "";
+        document.getElementById("totalPagar").innerText = "0";
+        contenedorcompra.innerHTML = '';
+        cantidad.innerText = '0';
+        localStorage.removeItem("carrito");
+        sessionStorage.clear();
+        console.clear();
         Swal.fire({
             title: `Gracias por tu compra!`,
             text: `En breve nos comunicaremos contigo`,
