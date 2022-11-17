@@ -1,11 +1,11 @@
 //variables
 let contenedorcarta = document.querySelector('.products');
 let contenedorcompra = document.querySelector('.card-items');
-let preciototal = document.querySelector('.price-total')
+let preciototal = document.querySelector('.price-total');
 let cantidad = document.querySelector('.count-product');
 
 
-let comprar = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let totalproductos = 0;
 let cantidadproductos = 0;
 
@@ -38,6 +38,8 @@ function agregarProducto(e) {
                 popup: "animate__animated animate__fadeOutTopRight",
             },
         });
+        //LocalStorage
+        localStorage.setItem("carrito", JSON.stringify(carrito));
     }
 }
 
@@ -60,18 +62,20 @@ function quitarProducto(e) {
                 popup: "animate__animated animate__fadeOutTopRight",
             },
         });
-        comprar.forEach(value => {
+        carrito.forEach(value => {
             if (value.id == quitarId) {
                 let precioR = parseFloat(value.precio) * parseFloat(value.cant);
                 totalproductos = totalproductos - precioR;
                 totalproductos = totalproductos.toFixed(2);
             }
         });
-        comprar = comprar.filter(producto => producto.id !== quitarId);
+        carrito = carrito.filter(producto => producto.id !== quitarId);
 
         cantidadproductos--;
+            //storage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     }
-    if (comprar.length === 0) {
+    if (carrito.length === 0) {
         preciototal.innerHTML = 0;
         cantidad.innerHTML = 0;
     }
@@ -91,9 +95,9 @@ function leerContenido(producto) {
     totalproductos = parseFloat(totalproductos) + parseFloat(infoProducto.precio);
     totalproductos = totalproductos.toFixed(2);
 
-    const existir = comprar.some(producto => producto.id === infoProducto.id);
+    const existir = carrito.some(producto => producto.id === infoProducto.id);
     if (existir) {
-        const debe = comprar.map(producto => {
+        const debe = carrito.map(producto => {
             if (producto.id === infoProducto.id) {
                 producto.cant++;
                 return producto;
@@ -101,9 +105,9 @@ function leerContenido(producto) {
                 return producto
             }
         });
-        comprar = [...debe];
+        carrito = [...debe];
     } else {
-        comprar = [...comprar, infoProducto]
+        carrito = [...carrito, infoProducto]
         cantidadproductos++;
     }
     loadHtml();
@@ -111,7 +115,7 @@ function leerContenido(producto) {
 
 function loadHtml() {
     clearHtml();
-    comprar.forEach(producto => {
+    carrito.forEach(producto => {
         const { imagen, titulo, precio, cant, id } = producto;
         const row = document.createElement('div');
         row.classList.add('item');
@@ -138,14 +142,14 @@ function clearHtml() {
 
 //Boton Compra FINAL
 btnFinalCompra.onclick = () => {
-    if (comprar.length == 0) {
+    if (carrito.length == 0) {
         Swal.fire({
             title: 'LO SENTIMOS',
             text: 'Tu carro está vacío',
             background: 'f0e8e8',
         })
     } else {
-        comprar = [];
+        carrito = [];
         totalproductos = 0;
         cantidadproductos = 0;
         cantidad.innerHTML = 0;
