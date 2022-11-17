@@ -80,6 +80,7 @@ function quitarProducto(e) {
         cantidad.innerHTML = 0;
     }
     loadHtml();
+    console.log(infoProducto);
 }
 
 //obtengo info del producto agregado
@@ -91,7 +92,7 @@ function leerContenido(producto) {
         id: producto.querySelector('a').getAttribute('data-id'),
         cant: 1
     }
-
+    
     totalproductos = parseFloat(totalproductos) + parseFloat(infoProducto.precio);
     totalproductos = totalproductos.toFixed(2);
 
@@ -128,16 +129,17 @@ function loadHtml() {
             </div>
             <span class="delete-product" data-id="${id}">X</span>
         `;
-
+        
         contenedorcompra.appendChild(row);
 
         preciototal.innerHTML = totalproductos;
 
         cantidad.innerHTML = cantidadproductos;
-    });
+    })
 }
 function clearHtml() {
     contenedorcompra.innerHTML = '';
+    
 }
 
 //Boton Compra FINAL
