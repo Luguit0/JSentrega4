@@ -87,7 +87,7 @@ function leerContenido(producto) {
         id: producto.querySelector('a').getAttribute('data-id'),
         cant: 1
     }
-    
+
     totalproductos = parseFloat(totalproductos) + parseFloat(infoProducto.precio);
     totalproductos = totalproductos.toFixed(2);
 
@@ -136,24 +136,6 @@ function clearHtml() {
     contenedorcompra.innerHTML = '';
 }
 
-// Efecto de Movimiento
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-
-    reveals.forEach((reveal) => {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveal.getBoundingClientRect().top;
-        var elementVisible = 100;
-
-        if (elementTop < windowHeight - elementVisible) {
-            reveal.classList.add("active");
-        } else {
-            reveal.classList.remove("active");
-        }
-    });
-}
-window.addEventListener("scroll", reveal);
-
 //Boton Compra FINAL
 btnFinalCompra.onclick = () => {
     if (comprar.length == 0) {
@@ -163,9 +145,12 @@ btnFinalCompra.onclick = () => {
             background: 'f0e8e8',
         })
     } else {
+        comprar = [];
+        totalproductos = 0;
+        cantidadproductos = 0;
+        cantidad.innerHTML = 0;
         document.getElementById("totalPagar").innerText = "0";
-        contenedorcompra.innerHTML = '';
-        cantidad.innerText = '0';
+        document.getElementById("prod-carro").innerHTML = '';
         localStorage.removeItem("carrito");
         sessionStorage.clear();
         console.clear();
@@ -186,3 +171,22 @@ btnFinalCompra.onclick = () => {
         });
     }
 }
+
+// Efecto de Movimiento
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((reveal) => {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveal.getBoundingClientRect().top;
+        var elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveal.classList.add("active");
+        } else {
+            reveal.classList.remove("active");
+        }
+    });
+}
+window.addEventListener("scroll", reveal);
+
