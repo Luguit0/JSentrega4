@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
     <title>BlackStanley</title>
 </head>
 
@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
-                <img class="logo" src="./images/pngwing.com.png" alt=""><a class="navbar-brand"
+                <img class="logo" src="./img/pngwing.com.png" alt=""><a class="navbar-brand"
                     href="./index.html">BlackStanley</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -25,211 +25,271 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbarSupportedContent" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" href="#articulos">Articulos</a>
+                            <a class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">Productos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#galeria">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Contacto">Contacto</a>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">Mi Carrito</a>
                         </li>
                     </ul>
-                    <div>
-                        <p class="count-product" id="prod-cant">0</p>
-                        <img onmouseover="showCart(this)" class="cart" src="./images/cart.png" alt="">
-                    </div>
-                    <div class="cart-products" id="products-id">
-                        <p class="close-btn" onclick="closeBtn()">X</p>
-                        <h3>Mi carrito</h3>
-                        <div id="prod-carro" class="card-items">
-                        </div>
-                        <h2>Total: <strong id="totalPagar" class="price-total">0</strong> $</h2>
-                        <button id="btnFinalCompra" class="btn btn-dark m-2">Finalizar compra</button>
-                    </div>
-
                 </div>
             </div>
         </nav>
     </header>
     <!-- Header FIN-->
-    <!-- Banner INI-->
+
     <div class="slider container-fluid">
         <ul>
-            <li><img src="./images/banner_3cuotas_mobile (1).jpg" alt=""></li>
-            <li><img src="./images/banner_3cuotas_mobile (1).jpg" alt=""></li>
-            <li><img src="./images/banner_3cuotas_mobile (1).jpg" alt=""></li>
-            <li><img src="./images/banner_3cuotas_mobile (1).jpg" alt=""></li>
+            <li><img src="./img/banner_3cuotas_mobile (1).jpg" alt=""></li>
+            <li><img src="./img/Aprocecha nuestros combos.jpg" alt=""></li>
+            <li><img src="./img/banner_3cuotas_mobile (1).jpg" alt=""></li>
+            <li><img src="./img/Aprocecha nuestros combos.jpg" alt=""></li>
         </ul>
     </div>
     <!-- Banner FIN-->
-    <!-- Articulos INI-->
-    <section id="articulos" class="container reveal">
-        <h3 class="pt-3 text-center fst-italic">Articulos Stanley</h3>
-        <div class="products ">
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/botellablack1.jpg" alt="">
-                    <p><span>5000</span>$</p>
+    <div class="tab-content" id="pills-tabContent">
+        <!-- PRODUCTOS INI-->
+        <div class="tab-pane fade show active container" id="pills-profile" role="tabpanel"
+            aria-labelledby="pills-profile-tab">
+            <h2 class="h4 m-4 text-black">Productos</h2>
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Combo Termo y Mate</h5>
+                        <img src="./img/stanleywhite2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Combo Termo Stanley Original Blanco de 1.3lts
+                                mas mate de
+                                regalo!.</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 37000</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="title">Botella Stanley Black de 500cm3</p>
-                <a href="" data-id="1" class="btn-add-cart">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/botellawhite.jpg" alt="">
-                    <p><span>5300</span>$</p>
-                </div>
-                <p class="title"> Botella/Cantiplora Stanley White de 500cm3</p>
-                <a href="" class="btn-add-cart" data-id="2">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/stanleyblack.jpg" alt="">
-                    <p><span>17000</span>$</p>
-                </div>
-                <p class="title"> Termo Stanley Black 1lts Camping</p>
-                <a href="" data-id="3" class="btn-add-cart">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/stanleycombo.jpg" alt="">
-                    <p><span>50000</span>$</p>
-                </div>
-                <p class="title"> Combo 3 Termos Stanley 1lts (rojo, verde y azul)</p>
-                <a href="" data-id="4" class="btn-add-cart">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/stanleypink2.jpg" alt="">
-                    <p><span>25000</span>$</p>
-                </div>
-                <p class="title"> Termo Rosa Pastel Stanley de 1,3lts</p>
-                <a href="" data-id="5" class="btn-add-cart">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/stanleyred.jpg" alt="">
-                    <p><span>17700</span>$</p>
-                </div>
-                <p class="title"> Termo Stanley Bordo de 1,3lts Camping</p>
-                <a href="" data-id="6" class="btn-add-cart">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/stanleywhite1.jpg" alt="">
-                    <p><span>20500</span>$</p>
-                </div>
-                <p class="title"> Termo Stanley White 1lts Camping</p>
-                <a href="" data-id="7" class="btn-add-cart">Comprar</a>
-            </div>
-            <div class="carts container">
-                <div>
-                    <img src="./images/products/stanleywhite2.jpg" alt="">
-                    <p><span>23500</span>$</p>
-                </div>
-                <p class="title"> Combo Termo Stanley White + Juego de mate</p>
-                <a href="" data-id="8" class="btn-add-cart">Comprar</a>
-            </div>
-        </div>
-    </section>
-    <!-- Articulos FIN-->
-
-    <!-- Post IMG-->
-    <main id="galeria">
-        <div class="gallery container">
-            <img src="./images/products/stanleypink1.jpg" alt="">
-            <img src="./images/products/botellablack1.jpg" alt="">
-            <img src="./images/products/stanleycombo.jpg" alt="">
-            <img src="./images/products/stanleyred.jpg" alt="">
-            <img src="./images/products/stanleywhite2.jpg" alt="">
-            <img src="./images/products/stanleypink2.jpg" alt="">
-        </div>
-    </main>
-    <!-- Post IMG-->
-    <!-- Login INI-->
-    <section id="Login">
-        <div class="contenedor-2 container reveal container-fluid">
-            <div class="message signup">
-                <div class="btn-wrapper">
-                    <button class="button" id="signup">Registrate</button>
-                    <button class="button" id="login"> Iniciar Sesion</button>
-                </div>
-            </div>
-            <div class="form form--signup">
-                <div class="form--heading">Registrate!</div>
-                <form autocomplete="off">
-                    <input type="text" placeholder="Usuario">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Contraseña">
-                    <button class="button">Sign Up</button>
-                </form>
-            </div>
-            <div class="form form--login">
-                <div class="form--heading">Inicia Sesion</div>
-                <form autocomplete="off">
-                    <input type="text" placeholder="Usuario">
-                    <input type="password" placeholder="Contraseña">
-                    <button class="button">Login</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- Login FIN-->
-    <!--Footer INI-->
-    <footer id="Contacto" class="footer-main footer-color fixed-buttom mt-Comprar container-fluid">
-        <div >
-            <div class="row address-main">
-                <div class="col-lg-4 col-sm-12 col-xs-12">
-                    <div class="address-box clearfix">
-                        <div class="add-content">
-                            <h5>Direccion</h5>
-                            <p> Calle Falsa 123, Ezeiza, Argentina.
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Stanley Botella</h5>
+                        <img src="./img/botellawhite.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Botella Stanley Original color blanco de 500cm3
                             </p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 5500</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-12 col-xs-12">
-                    <div class="address-box clearfix">
-                        <div class="add-content">
-                            <h5>Telefono</h5>
-                            <p>+54-1234-5678</p>
-                            <p>+54-9876-5432</p>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Termo Stanley Rosa</h5>
+                        <img src="./img/stanleypink2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Termo Stanley Original de 1,3lts. Mantiene frio
+                                y calor por
+                                24hs</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 35000</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-12 col-xs-12">
-                    <div class="address-box clearfix">
-                        <div class="add-content">
-                            <h5>Correo Electronico</h5>
-                            <p><a href="#" style="text-decoration:none">claudiomlugo@gmail.com</a></p>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Combo 3 Termos</h5>
+                        <img src="./img/stanleycombo.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Combo de 3 Termos Stanley Original, rojo, verde,
+                                y azul.</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 65000</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Termo Stanley Rojo</h5>
+                        <img src="./img/stanleyred.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Termo Stanley Original de 1,3lts. Mantiene frio
+                                y calor por
+                                24hs.</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 35000</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Termo Stanley Blanco</h5>
+                        <img src="./img/stanleywhite1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Termo Stanley Original de 1,3lts. Mantiene frio
+                                y calor por
+                                24hs</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 35000 </span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Combo Termo y Mate</h5>
+                        <img src="./img/stanleywhite2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Combo Termo Stanley Original Blanco de 1.3lts
+                                mas mate de
+                                regalo!.</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 37000</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-light rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-black">Termo Stanley Negro</h5>
+                        <img src="./img/botellablack1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-black description">Some quick example text to build on the card
+                                title and make
+                                up the bulk of the card's content.</p>
+                            <h5 class="text-black">Precio: <span class="precio">$ 35000</span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button">Añadir a Carrito</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!--Footer FIN-->
-    <!-- Scripts -->
-    <script src="./scripts/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-        crossorigin="anonymous"></script>
-    <script>
-        function showCart(x) {
-            document.getElementById("products-id").style.display = "block";
-        }
-        function closeBtn() {
-            document.getElementById("products-id").style.display = "none";
-        }
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./scripts/login.js"></script>
+        <!-- PRODUCTOS FIN-->
+
+        <!-- Mi CARRITO INI-->
+        <div class="tab-pane fade carrito" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <br>
+            <table class="table table-light table-hover">
+                <thead>
+                    <tr class="text-black">
+                        <th scope="col">#</th>
+                        <th scope="col">Productos</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                </tbody>
+            </table>
+            <br><br>
+            <div class="row mx-4">
+                <div class="col d-flex">
+                    <h3 class="itemCartTotal text-black">Total: 0</h3>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success comprarButton" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Comprar
+                    </button>
+                    <!-- Mi CARRITO FIN-->
+                    <!-- MSJ DE COMPRA INI -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Gracias por su compra!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Pronto recibira su pedido
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mi CARRITO FIN-->
+
+                </div>
+            </div>
+        </div>
+        <!-- Post IMG-->
+        <section class="reveal" id="galeria">
+            <div class="gallery container">
+                <img src="./img/stanleypink1.jpg">
+                <img src="./img/stanleywhite1.jpg">
+                <img src="./img/stanleyred.jpg">
+                <img src="./img/botellablack1.jpg">
+                <img src="./img/stanleycombo.jpg">
+                <img src="./img/stanleywhite2.jpg">
+            </div>
+        </section>
+        <!-- Post IMG-->
+        <!-- MSJ CARRITO-->
+        <div class="alert container-fluid position-sticky top-0 alert-primary hide" role="alert">
+            Producto Añadido al carrito!
+        </div>
+        <div class="alert container-fluid position-sticky top-0 alert-danger remove" role="alert">
+            Producto removido!
+        </div>
+        <!-- MSJ CARRITO-->
+        <!--Footer INI-->
+        <footer id="Contacto" class="footer-main footer-color fixed-buttom mt-Comprar container-fluid">
+            <div>
+                <div class="row address-main">
+                    <div class="col-lg-4 col-sm-12 col-xs-12">
+                        <div class="address-box clearfix">
+                            <div class="add-content">
+                                <h5>Direccion</h5>
+                                <p> Calle Falsa 123, Ezeiza, Argentina.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-xs-12">
+                        <div class="address-box clearfix">
+                            <div class="add-content">
+                                <h5>Telefono</h5>
+                                <p>+54-1234-5678</p>
+                                <p>+54-9876-5432</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-xs-12">
+                        <div class="address-box clearfix">
+                            <div class="add-content">
+                                <h5>Correo Electronico</h5>
+                                <p><a href="#" style="text-decoration:none">claudiomlugo@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--Footer FIN-->
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="./js/script.js"></script>
 </body>
 
 </html>

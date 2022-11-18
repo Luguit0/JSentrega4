@@ -1,0 +1,254 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: system-ui;
+    background-color: #f0e8e8;
+}
+header {
+    background-color: #e4e4e8;
+    box-shadow: 0 7px 8px -3px grey;
+    position: fixed;
+    width: 100%;
+    margin-top: -10px;
+    padding-top: 10px;
+    z-index: 99;
+}
+
+.logo {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.container {
+    padding-top: 100px;
+    max-width: 1200px;
+    text-align: center;
+    margin: auto;
+}
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    position: relative;
+}
+
+.header-section div {
+    position: relative;
+}
+
+.header-section p {
+    position: absolute;
+    top: -24px;
+    right: -8px;
+    background-color: #fff;
+    padding: 1px 6px;
+    border-radius: 50%;
+    color: red;
+    font-weight: 700;
+    font-family: system-ui;
+    line-height: 18px;
+}
+
+
+.description{
+    height: 25px;
+    overflow: hidden;
+    transition: height .3s ease-in .3s;
+}
+
+.description:hover{
+    height: 80px;
+}
+
+.carrito{
+    padding-top: 110px;
+    min-height: 80vh;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+.table__productos{
+    display: flex;
+}
+.table__productos > img {
+    width: 9rem;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-right: 20px;
+}
+.table__cantidad > input {
+    width: 40px;
+    border: none;
+    outline: 0;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+.hide, .remove{
+    display: none;
+}
+#divHome{
+    color: white;
+}
+.d-flex{
+    justify-content: space-between;
+}
+
+/*Post IMG INI*/
+.gallery {
+    place-content: center;
+    padding-top: 30x;
+    padding-bottom: 100px;
+    width: 85vw;
+    height: 60vmin;
+    display: flex;
+
+}
+
+.gallery img {
+    height: 100%;
+    flex: 1;
+    object-fit: cover;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 3px 10px rgb(0, 0, 0);
+}
+
+.gallery img:hover {
+    flex: 4;
+}
+/*Post IMG FIN*/
+
+/* FOOTER INI */
+.footer-color {
+    background-color: #f0e8e8;
+}
+
+.contacto {
+    min-height: 62vh;
+}
+
+.footer-main {
+    padding-top: 90px;
+}
+
+.address-main>div.col-lg-4 {
+    border-bottom: dotted 1px #999;
+}
+
+.address-box {
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+.add-icon {
+    width: 60px;
+    display: inline-block;
+    padding: 0px 5px;
+}
+
+.address-box .add-icon {
+    background: #27303b;
+    height: 75px;
+    line-height: 75px;
+    width: 75px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.add-icon img {
+    width: 100%;
+}
+
+.address-box .add-icon img {
+    max-width: 40px;
+}
+
+.add-content {
+    padding-left: 70px;
+}
+
+.add-content h5 {
+    font-size: 17px;
+    color: #000000;
+    padding: 0;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.add-content p {
+    font-size: 13px;
+    color: #000000;
+    font-weight: 300;
+}
+
+.add-content a {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+
+.add-content p a:hover {
+    color: #fa0a32;
+}
+/* FOOTER INI */
+
+/* REVEAL INI*/
+.reveal {
+    position: relative;
+    transform: translateY(144px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* REVEAL FIN*/
+/* Banner INI */
+.slider{
+    padding-top: 70px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+}
+.slider ul {
+    display: flex;
+    padding: 0;
+    width: 300%;
+
+    animation: cambio 20s infinite;
+    animation-direction: alternate;
+}
+.slider li {
+    width: 100%;
+    list-style: none;
+}
+.slider img{
+    width: 100%;
+    height: 300px;
+}
+@keyframes cambio {
+    0% {margin-left: 0;}
+    0% {margin-left: 0;}
+
+    25% {margin-left: -100%;}
+    35% {margin-left: -100%;}
+    
+    75% {margin-left: -200%;}
+    100% {margin-left: -200%;}
+}
