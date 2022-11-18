@@ -92,7 +92,8 @@ function leerContenido(producto) {
         id: producto.querySelector('a').getAttribute('data-id'),
         cant: 1
     }
-    
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
     totalproductos = parseFloat(totalproductos) + parseFloat(infoProducto.precio);
     totalproductos = totalproductos.toFixed(2);
 
@@ -111,6 +112,7 @@ function leerContenido(producto) {
         carrito = [...carrito, infoProducto]
         cantidadproductos++;
     }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     loadHtml();
 }
 
@@ -136,6 +138,7 @@ function loadHtml() {
 
         cantidad.innerHTML = cantidadproductos;
     })
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 function clearHtml() {
     contenedorcompra.innerHTML = '';
